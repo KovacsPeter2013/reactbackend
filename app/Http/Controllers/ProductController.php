@@ -84,4 +84,29 @@ class ProductController extends Controller{
     	}
     }
 
+
+    public function update(Request $req, $id){
+
+    	$product = Product::find($id);
+        //$product->name = $req->input("name");
+    	return $product;
+    	//$product->name = $req->input("name");
+    	//$product->price = $req->input("price");
+    	//$product->description = $req->input("description");
+    	//$product->save();
+    }
+
+
+
+
+
+
+
+
+    public function Search($key){
+
+    $result =   Product::where('name', 'Like', "%$key%")->get();
+    return $result;
+    }
+
 }
